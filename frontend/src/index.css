@@ -70,3 +70,18 @@ button:focus-visible {
 .nav-link{
   margin-left: 40px;
 }
+
+
+/* Support Page */
+#support-hero {
+  background-color: #387ed1;
+  min-height: 60vh;
+}
+
+#support-hero a {
+  font-size: 0.95rem;
+}
+
+#featured h2 {
+  font-weight: 600;
+}
