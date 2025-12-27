@@ -14,45 +14,45 @@ function Footer() {
                     </div>
                     <div className="col mt-5">
                         <h3>Company</h3>
-                            <a href=''> About </a>
+                            <a href='#'> About </a>
                             <br/>
-                            <a href=''>  Philosophy </a>
+                            <a href='#'>  Philosophy </a>
                             <br/>
-                            <a href=''>  Press & media</a>
+                            <a href='#'>  Press & media</a>
                             <br/>
-                            <a href=''> Careers</a>
+                            <a href='#'> Careers</a>
                             <br/>
-                            <a href=''> Zerodha Cares (CSR)</a>
+                            <a href='#'> Zerodha Cares (CSR)</a>
                             <br/>
-                            <a href=''> Zerodha.tech</a>
+                            <a href='#'> Zerodha.tech</a>
                             <br/>
-                            <a href=''> Open source</a>
+                            <a href='#'> Open source</a>
                     </div>
                     <div className="col mt-5">
                         <h3>Support</h3>
-                            <a href=''> Contact us </a>
+                            <a href='#'> Contact us </a>
                             <br/>
-                            <a href=''> Support portal </a>
+                            <a href='#'> Support portal </a>
                             <br/>
-                            <a href=''> How to file a complaint?</a>
+                            <a href='#'> How to file a complaint?</a>
                             <br/>
-                            <a href=''> Status of your complaints</a>
+                            <a href='#'> Status of your complaints</a>
                             <br/>
-                            <a href=''> Bulletin</a>
+                            <a href='#'> Bulletin</a>
                             <br/>
-                            <a href=''> Circular</a>
+                            <a href='#'> Circular</a>
                             <br/>
-                            <a href=''> Z-Connect blog</a>
+                            <a href='#'> Z-Connect blog</a>
                             <br/>
-                            <a href=''> Downloads</a>
+                            <a href='#'> Downloads</a>
                     </div>
                     <div className="col mt-5">
                         <h3>Account</h3>
-                            <a href=''>Open Account</a>
+                            <a href='#'>Open Account</a>
                             <br/>
-                            <a href=''>Fund Transfer</a>
+                            <a href='#'>Fund Transfer</a>
                             <br/>
-                            <a href=''>day challenge</a>
+                            <a href='#'>day challenge</a>
                     </div>
                 </div>
                 <div className='text-small text-muted  mt-5' style={{ fontSize: "0.95rem" }}>
