@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = moongoose.Schema; // we are created this 
+const Schema = mongoose.Schema; // we are created this 
 // becuase when every time when we create new schema we need to write like "new mongoose.Schema"
 // instead we can simply use Schema
 
