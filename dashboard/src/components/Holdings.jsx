@@ -1,10 +1,28 @@
-import { holdings } from "../data/data.jsx";
+// so here it is a static data coming from data.jsx file
+// import { holdings } from "../data/data.jsx";
+// Instead of reading data from file. We'll fetch data from api that we created in 
+// backend "/allholdings". For that we use react "hooks" and useState all these !
+
+import axios from 'axios';
+import { useState, useEffect } from "react";
+// Here useState is to --- store the data
+// And useEffect is to --- connect to the api
 
 
 function Holdings() {
+    // Now, fetch the data
+    const [allHoldings, setallHoldings] = useState([]);
+    // axios is the package will help use to connect to the package
+    useEffect(() =>{
+        axios.get("http://localhost:8000/allholdings")
+            .then((res) =>{
+                console.log("Working !");
+                setallHoldings(res.data);
+            })
+    }, []);
     return ( 
         <>
-            <h3 className="title">Holdings ({holdings.length})</h3>
+            <h3 className="title">Holdings ({ allHoldings.length })</h3>
             <div className="order-table">
                 <table>
                 <tr>
@@ -17,7 +35,7 @@ function Holdings() {
                     <th>Net chg.</th>
                     <th>Day chg.</th>
                 </tr>
-                {holdings.map((stock, index) =>{
+                { allHoldings.map((stock, index) =>{
                     const currValue = stock.price * stock.qty;
                     const isProfit = (currValue - stock.avg * stock.qty) >= 0.0;
                     const profClass = isProfit ? "profit" : "loss";
