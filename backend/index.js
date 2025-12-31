@@ -3,12 +3,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const  HoldingsModel  = require('./models/holdings');
 const positionsModel = require('./models/positions');
-const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 const PORT = process.env.PORT || 8000;
 const dbUrl = process.env.MONGODB_URL;
 
+const app = express();
+
+app.use(cors());
+app.use(bodyParser.json());
 main()
     .then(() =>{
         console.log("Connected to Database");
