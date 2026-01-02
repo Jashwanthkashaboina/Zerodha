@@ -4,8 +4,9 @@ import axios from "axios";
 
 import "./BuyActionWindow.css";
 
-const BuyActionWindow = ({ uid }) => {
-  const { closeBuyWindow } = useContext(GeneralContext); // ✅ use context
+const BuyActionWindow = ({ uid, mode }) => {
+  const { closeBuyWindow,closeSellWindow } = useContext(GeneralContext); //  use context
+
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
@@ -14,13 +15,15 @@ const BuyActionWindow = ({ uid }) => {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
-      mode: "BUY",
-    });
-    closeBuyWindow();
+      mode: mode,
+    }).then(() =>{
+      // alert(`${mode} order placed successfully`);
+      mode === 'BUY' ? closeBuyWindow() : closeSellWindow();
+    })
   };
 
   const handleCancelClick = () => {
-    closeBuyWindow();
+    mode === 'BUY' ? closeBuyWindow() : closeSellWindow();
   };
 
   return (
@@ -55,7 +58,7 @@ const BuyActionWindow = ({ uid }) => {
         <span>Margin required ₹140.65</span>
         <div>
           <button className="btn btn-blue" onClick={handleBuyClick}>
-            Buy
+            {mode == 'BUY' ? "Buy" : 'Sell'}
           </button>
           <button className="btn btn-grey" onClick={handleCancelClick}>
             Cancel

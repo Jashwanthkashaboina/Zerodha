@@ -1,7 +1,6 @@
 import { Grow, Tooltip } from '@mui/material';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { watchlist } from '../data/data.jsx';
-import { useContext } from "react";
 import GeneralContext from "./GeneralContext"; 
 import { BarChartOutlined, KeyboardArrowDown, KeyboardArrowUp, MoreHoriz } from "@mui/icons-material";
 
@@ -61,7 +60,7 @@ const WatchListItem = ({ stock }) => {
 
 
 const WatchListActions = ({ uid }) => {
-    const { openBuyWindow } = useContext(GeneralContext); // ✅ get function
+    const { openBuyWindow,openSellWindow } = useContext(GeneralContext); //  get function
 
     return (
         <span className='actions'>
@@ -71,14 +70,14 @@ const WatchListActions = ({ uid }) => {
                 arrow
                 slot={{ transition : Grow }}
             >
-                <button className='buy' onClick={() => openBuyWindow(uid)}>Buy</button> {/* ✅ trigger modal */}
+                <button className='buy' onClick={() => openBuyWindow(uid)}>Buy</button> {/*  trigger modal */}
             </Tooltip>
             <Tooltip
                 title="Sell (S)"
                 slot={{ transition : Grow }}
                 placement='top'
             >
-                <button className='sell'>Sell</button>
+                <button className='sell' onClick={ () => openSellWindow(uid) }>Sell</button>
             </Tooltip>
             <Tooltip
                 title="Analytics (A)"
