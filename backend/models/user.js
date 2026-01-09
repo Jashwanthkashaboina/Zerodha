@@ -7,7 +7,10 @@ const userSchema = new Schema({
       type: String,
       required: true,
     },
-
+    lastLogin: {
+    type: Date,
+    default: null,
+  },
 });
 
 userSchema.plugin(passportLocalMongoose);

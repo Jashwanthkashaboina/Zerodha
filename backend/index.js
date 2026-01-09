@@ -10,7 +10,7 @@ const session = require("express-session");
 const passport = require('passport');   
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-
+const { isLoggedIn } = require('./middleware.js');
 
 
 // routes
@@ -32,11 +32,17 @@ const sessionOptions = {
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
+        sameSite: "lax",
     },
 };
 
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "http://localhost:5174"],
+  credentials: true,
+}));
+
+
 app.use(bodyParser.json());
 main()
     .then(() =>{
@@ -83,12 +89,12 @@ app.get("/demouser",async(req,res)=>{
 
 
 
-app.get("/holdings", async(req, res) =>{
+app.get("/holdings", isLoggedIn, async(req, res) =>{
     let allholdings = await HoldingsModel.find({});
     res.send(allholdings);
 });
 
-app.get("/positions", async(req, res) =>{
+app.get("/positions", isLoggedIn, async(req, res) =>{
     let allpositions = await positionsModel.find({});
     res.send(allpositions);
 });
@@ -110,12 +116,12 @@ app.get("/positions", async(req, res) =>{
 // })
 
 
-app.get("/orders", async (req, res) => {
+app.get("/orders", isLoggedIn, async (req, res) => {
   const allOrders = await ordersModel.find({}).sort({ createdAt: -1 });
   res.json(allOrders);
 });
 
-app.post("/orders", async (req, res) => {
+app.post("/orders", isLoggedIn, async (req, res) => {
   try {
     const { name, qty, price, mode } = req.body;
 
