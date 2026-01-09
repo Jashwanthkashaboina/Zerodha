@@ -27,3 +27,5 @@ public/media/images/
 
 # Ignore tests directory
 tests/
+
+.env

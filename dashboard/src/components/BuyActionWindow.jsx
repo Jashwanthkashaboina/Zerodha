@@ -22,7 +22,7 @@ const BuyActionWindow = ({ uid, mode }) => {
     }
 
     try {
-      await axios.post("http://localhost:8000/orders", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/orders`, {
         name: uid,
         qty: Number(stockQuantity),
         price: Number(stockPrice),

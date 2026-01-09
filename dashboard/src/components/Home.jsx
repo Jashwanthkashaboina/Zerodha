@@ -9,17 +9,17 @@ function Home() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/me", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/me`, {
           withCredentials: true,
         });
 
         if (!res.data.loggedIn) {
-          window.location.href = "http://localhost:5173/login";
+          window.location.href = `${import.meta.env.VITE_DASHBOARD_URL}/login`;
         } else {
           setChecking(false); // allow dashboard to render
         }
       } catch (err) {
-        window.location.href = "http://localhost:5173/login";
+        window.location.href = `${import.meta.env.VITE_DASHBOARD_URL}/login`;
       }
     };
 

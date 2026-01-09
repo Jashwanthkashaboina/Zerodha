@@ -18,7 +18,7 @@ function Holdings() {
     const [allHoldings, setallHoldings] = useState([]);
     // axios is the package will help use to connect to the package
     useEffect(() =>{
-        axios.get("http://localhost:8000/holdings")
+        axios.get(`${import.meta.env.VITE_API_URL}/allholdings`)
             .then((res) =>{
                 // console.log("Working !");
                 setallHoldings(res.data);

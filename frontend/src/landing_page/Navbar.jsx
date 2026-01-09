@@ -19,7 +19,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/logout");
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/logout`);
       toast.success(res.data.message);
       await fetchUser();          //  update auth state
       navigate("/");
@@ -63,7 +63,7 @@ function Navbar() {
                 <li className="nav-item">
                     <a
                       className="nav-link"
-                      href="http://localhost:5174"
+                      href={`${import.meta.env.VITE_DASHBOARD_URL}`}
                     >
                       Dashboard
                     </a>

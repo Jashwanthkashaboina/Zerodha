@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/me");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/me`);
       if (res.data.loggedIn) {
         setUser(res.data.user);
       } else {
