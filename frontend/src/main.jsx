@@ -12,9 +12,12 @@ import Footer from './landing_page/Footer'
 import NotFound from './landing_page/NotFound'
 import { Toaster } from 'react-hot-toast'
 import Login from './landing_page/login/Login'
-
+import axios from 'axios';
+import { AuthProvider } from './landing_page/AuthContext';
+axios.defaults.withCredentials = true;
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
+  <AuthProvider>
   <Navbar/>
     <Routes>
       <Route path='/' element={ <HomePage/> } />
@@ -26,6 +29,7 @@ createRoot(document.getElementById('root')).render(
       <Route path='/support' element={ <SupportPage/> } />
       <Route path='/*' element={ <NotFound/> } />
     </Routes>
+  </AuthProvider>
     <Toaster position="top-center" />
     <Footer/>
   </BrowserRouter>
