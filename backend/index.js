@@ -10,6 +10,7 @@ const session = require("express-session");
 const passport = require('passport');   
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const path = require("path");
 const { isLoggedIn } = require('./middleware.js');
 
 
@@ -48,6 +49,13 @@ app.use(cors({
 
 
 app.use(bodyParser.json());
+
+// Serve landing frontend
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Serve dashboard frontend
+app.use("/dashboard", express.static(path.join(__dirname, "../dashboard/dist")));
+
 main()
     .then(() =>{
         console.log("Connected to Database");
