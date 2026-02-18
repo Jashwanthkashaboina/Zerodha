@@ -1,4 +1,4 @@
-# Finloop
+# Fin Loop
 A full-stack trading platform clone built for learning and portfolio purposes.
 ## 🚀 Live Demo
 - Frontend (Landing): https://zerodha-2-4uv7.onrender.com/
